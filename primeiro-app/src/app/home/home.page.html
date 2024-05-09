@@ -27,7 +27,30 @@
       <ion-col>
         <ion-item>
           <ion-label position="stacked">valor : 1</ion-label>
-          <ion-input></ion-input>
+          <ion-input [(ngModel)]="n1"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">valor : 2</ion-label>
+          <ion-input [(ngModel)]="n2"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="calcular()">Calcular</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item >
+          <ion-label>
+            Resultado :
+          </ion-label>
+          <ion-input disabled="true" [value]="exibirresultado()"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
