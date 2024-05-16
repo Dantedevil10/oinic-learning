@@ -12,11 +12,25 @@ export class HomePage {
   n2:string;
   resultado:number;
 
+
   constructor() {
-    this.n1='0';
-    this.n2='0';
+    this.n1= '5';
+    this.n2= '0';
     this.resultado=0;
+    
   }
+  Fatorial(){
+    let fatorial:number = 1
+    let numero:number = parseFloat(this.n1)
+    for(let i = 1;i<=numero;i=i+1){
+      fatorial = fatorial*i
+      
+    }
+    this.resultado=fatorial
+    
+  }
+
+
   calcular(){
     this.resultado = parseFloat(this.n1) + parseFloat(this.n2)
   }
