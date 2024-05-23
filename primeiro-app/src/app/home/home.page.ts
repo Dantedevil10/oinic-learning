@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CepService } from '../services/cep.service';
 
 @Component({
   selector: 'app-home',
@@ -7,34 +8,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  
-  n1:string;
-  n2:string;
-  resultado:number;
+    cep:string = '04101300';
+    endereco:any={logradouro:'',bairro:'',localidade:''};
 
-
-  constructor() {
-    this.n1= '5';
-    this.n2= '0';
-    this.resultado=0;
+  constructor(public cepSevice:CepService) {
+    
     
   }
-  Fatorial(){
-    let fatorial:number = 1
-    let numero:number = parseFloat(this.n1)
-    for(let i = 1;i<=numero;i=i+1){
-      fatorial = fatorial*i
-      
-    }
-    this.resultado=fatorial
-    
+ 
+  consultaCEP(){
+    this.cepSevice.getEndereco(this.cep)
+    .then((json)=>{
+      this.endereco = json
+    })
+    .catch((err)=>{console.log(err)})
   }
-
-
-  calcular(){
-    this.resultado = parseFloat(this.n1) + parseFloat(this.n2)
-  }
-  exibirresultado():number{
-    return this.resultado
-  }
+ 
 }
